@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="container">
+        <form (ngSubmit)="onSubmit()">
+            <div class="row">
+                <h3 class="title">Login</h3>
+                <mat-form-field>
+                    <mat-label >Enter your email</mat-label>
+                    <input matInput
+                        placeholder="g360@example.com"
+                        [formControl]="email"
+                        (blur)="updateErrorMessage()"
+                        required label="Enter your email"/>
+                    @if (email.invalid) {
+                        <mat-error>{{errorMessage}}</mat-error>
+                    }
+                </mat-form-field> 
+
+                <mat-form-field>
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'"
+                        placeholder="password_123"
+                        [formControl]="password"
+                        (blur)="updateErrorMessage()">
+                </mat-form-field>
+
+                <button class="btn btn-success" type="submit">Entrar</button>
+            </div>
+        </form>
+    </div>
+</div>
